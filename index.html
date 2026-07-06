@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sur nos pages — les rencontres d'auteur·rice · La Brassée</title>
+<meta name="description" content="Le rendez-vous littéraire du dimanche à La Brassée : un 5 à 7 avec un·e écrivain·e, de 17 h à 19 h. Lecture, échange, signature — entrée libre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --jaune: #f7d135;
+    --jaune-clair: rgba(247, 209, 53, 0.15);
+    --jaune-trame: rgba(247, 209, 53, 0.3);
+    --creme-fort: rgba(205, 196, 157, 0.6);
+    --sombre: #100f09;
+    --sombre-alt: #1f1c0f;
+    --blanc: #ffffff;
+    --blanc-doux: rgba(255, 255, 255, 0.85);
+    --gris: rgba(255, 255, 255, 0.55);
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --font-titre: 'Oswald', 'DIN Condensed', 'Helvetica Neue Condensed', Impact, sans-serif;
+    --font-corps: 'Lato', 'Acumin Pro', 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--sombre); }
+  body {
+    font-family: var(--font-corps); color: var(--blanc); line-height: 1.6;
+    font-size: 16px; font-weight: 300; min-height: 100vh;
+    position: relative; overflow-x: hidden;
+    background:
+      radial-gradient(ellipse at 30% 10%, rgba(247, 209, 53, 0.10), transparent 55%),
+      radial-gradient(ellipse at 70% 90%, rgba(247, 209, 53, 0.05), transparent 50%),
+      linear-gradient(to bottom, var(--sombre) 0%, var(--sombre-alt) 100%);
+    background-attachment: fixed;
+  }
+  .watermark {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: min(85vmin, 700px); height: min(85vmin, 700px);
+    pointer-events: none; z-index: 0; opacity: 0.05;
+  }
+  .watermark svg { width: 100%; height: 100%; }
+  .watermark svg path { stroke: var(--jaune) !important; stroke-width: 1.2 !important; }
+  header, main, footer { position: relative; z-index: 2; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    text-align: center; padding: 64px 24px 40px;
+    border-bottom: 1px solid var(--glass-border); margin-bottom: 40px;
+  }
+  header .logo-svg { width: 104px; height: 104px; margin: 0 auto 24px; }
+  header .logo-svg svg { width: 100%; height: 100%; }
+  header .logo-svg svg .st0, header .logo-svg svg path, header .logo-svg svg polygon { fill: var(--jaune) !important; }
+  header h1 {
+    font-family: var(--font-titre); font-size: clamp(30px, 6vw, 46px);
+    font-weight: 300; letter-spacing: 5px; color: var(--blanc); margin-bottom: 12px;
+  }
+  header .sous-titre {
+    color: var(--creme-fort); font-family: var(--font-titre);
+    text-transform: uppercase; letter-spacing: 3px; font-size: 12px; font-weight: 300;
+  }
+
+  .intro {
+    background: linear-gradient(135deg, rgba(247, 209, 53, 0.10), rgba(247, 209, 53, 0.02));
+    backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--jaune-trame); box-shadow: var(--glass-inset), var(--glass-shadow);
+    padding: 32px 36px; margin-bottom: 40px; border-radius: 20px;
+  }
+  .intro h2 {
+    font-family: var(--font-titre); font-size: 24px; margin-bottom: 14px;
+    text-transform: uppercase; letter-spacing: 2px; font-weight: 400; color: var(--jaune);
+  }
+  .intro p { margin-bottom: 10px; color: var(--blanc-doux); }
+  .intro .points { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(247,209,53,0.2); }
+  .intro .points p { font-size: 14px; color: rgba(255,255,255,0.75); margin-bottom: 8px; }
+  .intro .points strong { color: var(--jaune); font-weight: 500; }
+  .cta {
+    display: inline-block; margin-top: 18px; background: var(--jaune); color: var(--sombre);
+    font-family: var(--font-titre); text-transform: uppercase; letter-spacing: 3px; font-size: 13px;
+    padding: 14px 28px; border-radius: 999px; text-decoration: none;
+    border: 1px solid var(--jaune); transition: all 0.3s ease;
+  }
+  .cta:hover { background: transparent; color: var(--jaune); }
+
+  .section-titre {
+    font-family: var(--font-titre); text-transform: uppercase; letter-spacing: 3px;
+    font-size: 13px; color: var(--creme-fort); margin-bottom: 20px; font-weight: 400;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-titre::after { content: ''; flex: 1; height: 1px; background: var(--glass-border); }
+
+  .rencontre {
+    background: var(--glass-bg); backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border); box-shadow: var(--glass-inset), var(--glass-shadow);
+    border-radius: 20px; padding: 24px; margin-bottom: 20px;
+    display: flex; gap: 22px; align-items: flex-start;
+  }
+  @media (max-width: 620px) { .rencontre { flex-direction: column; gap: 16px; } }
+  .rencontre .portrait {
+    width: 120px; height: 120px; flex-shrink: 0; border-radius: 16px;
+    object-fit: cover; border: 1px solid var(--jaune-trame); background: rgba(0,0,0,0.3);
+  }
+  .rencontre .portrait-placeholder {
+    width: 120px; height: 120px; flex-shrink: 0; border-radius: 16px;
+    border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center; font-size: 42px;
+  }
+  .rencontre .corps { flex: 1; min-width: 0; }
+  .rencontre .date-pill {
+    display: inline-block; font-family: var(--font-titre); text-transform: uppercase;
+    letter-spacing: 2px; font-size: 12px; color: var(--sombre); background: var(--jaune);
+    padding: 5px 14px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .rencontre h3 {
+    font-family: var(--font-titre); font-size: 24px; font-weight: 400;
+    letter-spacing: 0.5px; color: var(--blanc); margin-bottom: 4px;
+  }
+  .rencontre .livre { color: var(--jaune); font-size: 15px; margin-bottom: 12px; font-style: italic; }
+  .rencontre .livre .editeur { color: var(--gris); font-style: normal; }
+  .rencontre .bio { color: var(--blanc-doux); font-size: 14px; margin-bottom: 12px; }
+  .rencontre .extrait {
+    color: rgba(255,255,255,0.7); font-size: 14px; font-style: italic;
+    border-left: 2px solid var(--jaune-trame); padding-left: 14px; margin-bottom: 12px;
+    white-space: pre-wrap;
+  }
+  .rencontre .liens { display: flex; gap: 14px; flex-wrap: wrap; }
+  .rencontre .liens a {
+    color: var(--jaune); text-decoration: none; font-size: 13px;
+    font-family: var(--font-titre); text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid var(--jaune-trame); padding-bottom: 2px;
+  }
+  .rencontre .liens a:hover { border-color: var(--jaune); }
+
+  .vide {
+    text-align: center; padding: 48px 24px; color: var(--gris);
+    background: var(--glass-bg); border: 1px dashed var(--glass-border); border-radius: 20px;
+  }
+  .vide .icone { font-size: 44px; margin-bottom: 14px; }
+  .vide p { color: var(--blanc-doux); margin-bottom: 6px; }
+
+  footer {
+    text-align: center; padding: 56px 24px 32px; margin-top: 40px;
+    border-top: 1px solid var(--glass-border);
+    color: var(--gris); font-size: 13px; background: rgba(10, 9, 5, 0.6);
+    backdrop-filter: blur(20px);
+  }
+  footer .logo-svg-footer { width: 64px; height: 64px; margin: 0 auto 14px; }
+  footer .logo-svg-footer svg { width: 100%; height: 100%; }
+  footer .logo-svg-footer svg .st0, footer .logo-svg-footer svg path, footer .logo-svg-footer svg polygon { fill: var(--jaune) !important; }
+  footer .nom-marque {
+    font-family: var(--font-titre); color: var(--jaune); font-size: 14px;
+    letter-spacing: 3px; margin-bottom: 8px; text-transform: uppercase;
+  }
+  footer a { color: var(--blanc-doux); text-decoration: none; }
+  footer a:hover { color: var(--jaune); }
+</style>
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" href="icon-192.png" />
+<meta name="theme-color" content="#100f09" />
+</head>
+<body>
+
+<div class="watermark" id="watermark"></div>
+
+<header>
+  <div class="logo-svg" id="logo-header"></div>
+  <h1>SUR NOS PAGES</h1>
+  <div class="sous-titre">Rencontres d'auteur·rice · le 5 à 7 du dimanche</div>
+</header>
+
+<main class="container">
+
+  <div class="intro">
+    <h2>Le rendez-vous littéraire du dimanche</h2>
+    <p>Un dimanche en fin de journée, La Brassée ouvre son 5 à 7 à un·e écrivain·e. Une lecture, un échange avec le public, une signature — dans l'ambiance feutrée du café, de 17 h à 19 h.</p>
+    <div class="points">
+      <p>📚 <strong>Entrée libre</strong> · une consommation au bar, et on s'installe pour écouter.</p>
+      <p>✍️ <strong>Vente de livres sur place</strong> · directement avec l'auteur·rice ou son éditeur.</p>
+      <p>🍺 <strong>Aucun cachet, aucune billetterie</strong> · on se retrouve autour d'un verre et d'un texte.</p>
+    </div>
+    <a class="cta" href="https://labrassee-pages-depot.vercel.app/?candidature=pages" target="_blank" rel="noopener noreferrer">Tu écris ? Propose ta rencontre</a>
+  </div>
+
+  <div class="section-titre">Prochaines rencontres</div>
+  <div id="liste-rencontres">
+    <div class="vide"><div class="icone">⏳</div><p>Chargement…</p></div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="logo-svg-footer" id="logo-footer"></div>
+  <div class="nom-marque">LA BRASSÉE</div>
+  <div>Café · scène · galerie · pages · Rosemont, Montréal</div>
+  <div style="margin-top:8px">2522 Beaubien Est · Montréal · <a href="mailto:contact@labrassee.cafe">contact@labrassee.cafe</a></div>
+</footer>
+
+<script>
+  async function chargerSVG(url, elementId) {
+    try {
+      const r = await fetch(url);
+      const svg = await r.text();
+      const el = document.getElementById(elementId);
+      if (el) el.innerHTML = svg;
+    } catch (e) { console.error('SVG ' + url, e); }
+  }
+  chargerSVG('picto_outlined_white.svg', 'watermark');
+  chargerSVG('full_logo_white.svg', 'logo-header');
+  chargerSVG('full_logo_white.svg', 'logo-footer');
+</script>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = 'https://xjlpttrziisldlclhsth.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhqbHB0dHJ6aWlzbGRsY2xoc3RoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NjkyODMsImV4cCI6MjA5MjA0NTI4M30.JpkTnJF1ZP08ybzFdM8fFUJOTiKYx8ltTe2nxiDPk24';
+  const supa = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // Colonnes publiques uniquement (le serrage BD interdit courriel/token/etc. en anon).
+  const COLS = 'id, nom_artiste, nom_complet, titre_livre, editeur, annee_publication, bio, extrait, extrait_pdf_path, photo_artiste_path, instagram, facebook, site_web, date_rencontre';
+
+  function todayMtlISO() {
+    const f = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Toronto', year: 'numeric', month: '2-digit', day: '2-digit' });
+    const parts = f.formatToParts(new Date());
+    const get = (t) => parts.find(p => p.type === t)?.value || '';
+    return `${get('year')}-${get('month')}-${get('day')}`;
+  }
+
+  function formaterDate(iso) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    const dt = new Date(y, m - 1, d);
+    const jours = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+    const mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    return `${jours[dt.getDay()]} ${d} ${mois[dt.getMonth()]} ${y}`;
+  }
+
+  function escaperHtml(s) {
+    if (!s) return '';
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function urlStockage(path) {
+    return `${SUPABASE_URL}/storage/v1/object/public/artistes-pages-photos/${path}`;
+  }
+
+  function normaliserLien(s) {
+    if (!s) return null;
+    let v = String(s).trim();
+    if (!v) return null;
+    if (v.startsWith('@')) return 'https://instagram.com/' + v.slice(1);
+    if (!/^https?:\/\//i.test(v)) v = 'https://' + v;
+    try { new URL(v); return v; } catch { return null; }
+  }
+
+  function tronquer(s, n) {
+    if (!s) return '';
+    const t = String(s).trim();
+    return t.length > n ? t.slice(0, n).trimEnd() + '…' : t;
+  }
+
+  function carteRencontre(a) {
+    const nom = escaperHtml(a.nom_artiste || a.nom_complet || 'Auteur·rice');
+    const portrait = a.photo_artiste_path
+      ? `<img class="portrait" src="${urlStockage(a.photo_artiste_path)}" alt="Portrait de ${nom}" loading="lazy">`
+      : `<div class="portrait-placeholder">📖</div>`;
+    let livre = '';
+    if (a.titre_livre) {
+      const ed = [a.editeur, a.annee_publication].filter(Boolean).map(escaperHtml).join(' · ');
+      livre = `<div class="livre">« ${escaperHtml(a.titre_livre)} »${ed ? ` <span class="editeur">— ${ed}</span>` : ''}</div>`;
+    }
+    const bio = a.bio ? `<div class="bio">${escaperHtml(tronquer(a.bio, 320))}</div>` : '';
+    const extrait = a.extrait ? `<div class="extrait">${escaperHtml(tronquer(a.extrait, 260))}</div>` : '';
+    const liens = [];
+    const site = normaliserLien(a.site_web);
+    const ig = normaliserLien(a.instagram);
+    const fb = normaliserLien(a.facebook);
+    if (site) liens.push(`<a href="${site}" target="_blank" rel="noopener noreferrer">Site</a>`);
+    if (ig) liens.push(`<a href="${ig}" target="_blank" rel="noopener noreferrer">Instagram</a>`);
+    if (fb) liens.push(`<a href="${fb}" target="_blank" rel="noopener noreferrer">Facebook</a>`);
+    if (a.extrait_pdf_path) liens.push(`<a href="${urlStockage(a.extrait_pdf_path)}" target="_blank" rel="noopener noreferrer">Lire un extrait (PDF)</a>`);
+    const liensHtml = liens.length ? `<div class="liens">${liens.join('')}</div>` : '';
+    return `
+      <article class="rencontre">
+        ${portrait}
+        <div class="corps">
+          <span class="date-pill">${escaperHtml(formaterDate(a.date_rencontre))} · 17 h → 19 h</span>
+          <h3>${nom}</h3>
+          ${livre}
+          ${bio}
+          ${extrait}
+          ${liensHtml}
+        </div>
+      </article>`;
+  }
+
+  async function init() {
+    const zone = document.getElementById('liste-rencontres');
+    try {
+      const today = todayMtlISO();
+      const { data, error } = await supa
+        .from('artistes_pages')
+        .select(COLS)
+        .eq('signature_acceptee', true)
+        .not('date_rencontre', 'is', null)
+        .gte('date_rencontre', today)
+        .order('date_rencontre', { ascending: true });
+      if (error) throw error;
+      if (!data || data.length === 0) {
+        zone.innerHTML = `
+          <div class="vide">
+            <div class="icone">📖</div>
+            <p><strong style="color:var(--jaune)">La prochaine rencontre se prépare.</strong></p>
+            <p>Reviens bientôt — ou, si tu écris, propose la tienne.</p>
+          </div>`;
+        return;
+      }
+      zone.innerHTML = data.map(carteRencontre).join('');
+    } catch (err) {
+      console.error('init() pages-publique:', err);
+      zone.innerHTML = `
+        <div class="vide">
+          <div class="icone">⚠️</div>
+          <p>Impossible de charger les rencontres pour le moment.</p>
+          <p>Recharge la page dans un instant.</p>
+        </div>`;
+    }
+  }
+
+  init();
+</script>
+
+<footer class="iacouba-sig"><a href="https://iacouba.ca" target="_blank" rel="noopener"><span>par</span><img src="/iacouba-lockup-contenu.svg" alt="IAcouba"></a></footer><style>.iacouba-sig{display:flex;justify-content:center;padding:20px 12px 26px;margin-top:18px;border-top:1px solid rgba(242,233,214,.12)}.iacouba-sig a{display:flex;align-items:center;gap:.45rem;text-decoration:none;color:rgba(242,233,214,.55);font-size:.74rem;letter-spacing:.02em;opacity:.92}.iacouba-sig img{height:17px;display:block}</style>
+</body>
+</html>
